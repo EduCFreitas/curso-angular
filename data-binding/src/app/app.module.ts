@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
+import { MeuFormComponent } from './meu-form/meu-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    //AppRoutingModule,
+    FormsModule,
+    MeuFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
