@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeuFormComponent implements OnInit {
 
-  nome: any = 'abc';
+  nome: string = 'abc';
 
   pessoa: any ={
     nome: 'Eduardo',
