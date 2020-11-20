@@ -9,7 +9,13 @@ export class DiretivasCustomizadasComponent implements OnInit {
 
   constructor() { }
 
+  mostrarCursos: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  onMostrarCursos(){
+    this.mostrarCursos = !this.mostrarCursos;
   }
 
 }
