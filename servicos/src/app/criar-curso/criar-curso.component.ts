@@ -7,7 +7,7 @@ import { CursosService } from '../cursos/cursos.service';
   templateUrl: './criar-curso.component.html',
   styleUrls: ['./criar-curso.component.css'],
   //Quando queremos que o service seja restrito a um component:
-  //providers: [CursosService]
+  providers: [CursosService]
 })
 export class CriarCursoComponent implements OnInit {
 
