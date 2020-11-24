@@ -27,8 +27,6 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
         this.aluno = this.alunosService.getAluno(id);
       }
     );
-
-    console.log(this.aluno);
   }
 
   ngOnDestroy(){
