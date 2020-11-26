@@ -2,8 +2,9 @@
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" [(ngModel)]="usuario.nome"
-        required>
+        required #nome>
         <!-- Pode-se usar apenas data-binding no ngModel. Ex: [ngModel]="usuario.nome" -->
+        <!-- <div>{{ nome.className }}</div> -->
     </div>
 
     <div class="form-group">
