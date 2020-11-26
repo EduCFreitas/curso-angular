@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateFormComponent implements OnInit {
 
   usuario: any = {
-    nome: 'Eduardo',
-    email: 'edu@email.com'
+    nome: null,
+    email: null
   }
 
   constructor(private http: HttpClient) { }
@@ -34,7 +34,7 @@ export class TemplateFormComponent implements OnInit {
     };
   }
 
-  consultaCEP(cep){
+  consultaCEP(cep, form){
     //console.log(cep);
 
     //Torna cep apenas com dígitos
@@ -47,11 +47,54 @@ export class TemplateFormComponent implements OnInit {
 
       //Valida o formato do CEP
       if(validacep.test(cep)){
+        this.resetaDadosForm(form);
 
         //Consulta o webservice viacep.com.br/
-        this.http.get(`https://viacep.com.br/ws/${cep}/json`).subscribe(dados => console.log(dados));
+        this.http.get(`https://viacep.com.br/ws/${cep}/json`).subscribe(dados => this.populaDadosForm(dados, form));
       }
     }
+  }
+
+  populaDadosForm(dados, formulario){
+    // formulario.setValue({
+    //   nome: formulario.value.nome,
+    //   email: formulario.value.email,
+    //   endereco: {
+    //     cep: dados.cep,
+    //     rua: dados.logradouro,
+    //     numero: formulario.value.numero,
+    //     complemento: dados.complemento,
+    //     bairro: dados.bairro,
+    //     cidade: dados.localidade,
+    //     estado: dados.uf
+    //   }
+    // });
+
+    formulario.form.patchValue({
+      endereco: {
+        cep: dados.cep,
+        rua: dados.logradouro,
+        complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+
+    //console.log(formulario);
+  }
+
+  resetaDadosForm(formulario){
+    formulario.form.patchValue({
+      endereco: {
+        cep: null,
+        rua: null,
+        complemento: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
   }
 
 }
