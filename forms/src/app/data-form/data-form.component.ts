@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { EstadoBr } from '../shared/models/estado-br';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { DropdownService } from '../shared/services/dropdown.service';
+import { FormValidations } from '../shared/form-validations';
 
 @Component({
   selector: 'app-data-form',
@@ -71,7 +72,7 @@ export class DataFormComponent implements OnInit {
   buildFrameworks(){
     const values = this.frameworks.map(v => new FormControl(false));
 
-    return this.formBuilder.array(values);
+    return this.formBuilder.array(values, FormValidations.requiredMinCheckbox(1));
     // this.formBuilder.array([
     //   new FormControl(false),
     //   new FormControl(false),
