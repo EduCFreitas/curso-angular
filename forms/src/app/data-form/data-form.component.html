@@ -29,7 +29,8 @@
                 <input type="text" id="cep" class="form-control" formControlName="cep" (blur)="consultaCEP()">
                 <!-- [mostrarErro]="!formulario.controls['endereco'].controls['cep'].valid" && formulario.controls['endereco'].controls['cep'].touched -->
                 <!-- [mostrarErro]="!formulario.get('endereco.cep').valid" && formulario.get('endereco.cep').touched -->
-                <app-campo-control-erro [mostrarErro]="verificaValidTouched('endereco.cep')" msgErro="CEP é obrigatório."></app-campo-control-erro>
+                <app-campo-control-erro [mostrarErro]="verificaRequired('endereco.cep')" msgErro="CEP é obrigatório."></app-campo-control-erro>
+                <app-campo-control-erro [mostrarErro]="formulario.get('endereco.cep').hasError('cepInvalido')" msgErro="CEP inválido."></app-campo-control-erro>
             </div>
             
             <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.numero')">
