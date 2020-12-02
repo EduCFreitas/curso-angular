@@ -10,7 +10,7 @@ export class ConsultaCepService {
   constructor(private http: HttpClient) { }
 
   consultaCEP(cep: string){
-    //console.log(cep);
+    console.log(cep);
 
     //Torna cep apenas com dígitos
     cep = cep.replace(/\D/g, '');
