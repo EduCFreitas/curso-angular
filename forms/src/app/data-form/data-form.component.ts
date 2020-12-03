@@ -173,7 +173,7 @@ export class DataFormComponent implements OnInit {
 
     this.formulario.patchValue({
       endereco: {
-        cep: dados.cep,
+        //cep: dados.cep,
         rua: dados.logradouro,
         complemento: dados.complemento,
         bairro: dados.bairro,
