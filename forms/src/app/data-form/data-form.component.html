@@ -79,9 +79,18 @@
                 <!-- <app-campo-control-erro [mostrarErro]="verificaValidTouched('endereco.bairro')" msgErro="Bairro é obrigatório."></app-campo-control-erro> -->
             </div>
             
-            <div class="col-md-4" [ngClass]="aplicaCssErro('endereco.cidade')">
+            <!-- <div class="col-md-4" [ngClass]="aplicaCssErro('endereco.cidade')">
                 <label for="cidade" class="control-label">Cidade</label>
                 <input type="text" id="cidade" class="form-control" formControlName="cidade">
+                <app-error-msg [control]="formulario.get('endereco.cidade')" label="Cidade"></app-error-msg>
+                <app-campo-control-erro [mostrarErro]="verificaValidTouched('endereco.cidade')" msgErro="Cidade é obrigatório."></app-campo-control-erro>
+            </div> -->
+
+            <div class="col-md-4" [ngClass]="aplicaCssErro('endereco.cidade')">
+                <label for="cidade" class="control-label">Cidade</label>
+                <select id="cidade" class="form-control" formControlName="cidade">
+                    <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</option>
+                </select>
                 <app-error-msg [control]="formulario.get('endereco.cidade')" label="Cidade"></app-error-msg>
                 <!-- <app-campo-control-erro [mostrarErro]="verificaValidTouched('endereco.cidade')" msgErro="Cidade é obrigatório."></app-campo-control-erro> -->
             </div>
@@ -89,7 +98,7 @@
             <div class="col-md-3" [ngClass]="aplicaCssErro('endereco.estado')">
                 <label for="estado" class="control-label">Estado</label>
                 <select id="estado" class="form-control" formControlName="estado">
-                    <option *ngFor="let estado of estados | async" [value]="estado.sigla">{{ estado.nome }}</option>
+                    <option *ngFor="let estado of estados" [value]="estado.sigla">{{ estado.nome }}</option>
                 </select>
                 <app-error-msg [control]="formulario.get('endereco.estado')" label="Estado"></app-error-msg>
                 <!-- <app-campo-control-erro [mostrarErro]="verificaValidTouched('endereco.estado')" msgErro="Estado é obrigatório."></app-campo-control-erro> -->
