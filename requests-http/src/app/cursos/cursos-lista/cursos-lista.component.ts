@@ -7,6 +7,7 @@ import { AlertModalService } from 'src/app/shared/alert-modal.service';
 import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
 import { Curso } from '../curso';
 import { CursosService } from '../cursos.service';
+import { Cursos2Service } from '../cursos2.service';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -27,7 +28,7 @@ export class CursosListaComponent implements OnInit {
 
   cursoSelecionado: Curso;
 
-  constructor(private service: CursosService,
+  constructor(private service: Cursos2Service,
     private modalService: BsModalService,
     private alertService: AlertModalService,
     private router: Router,
